@@ -1,0 +1,2 @@
+entity Desk is 
+port(clk,ir,ldr:in std_logic; servo:out std_logic; bcd:out std_logic_vector(6 downto 0);
