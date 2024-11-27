@@ -25,17 +25,39 @@ signal display:std_logic:='0';
 signal angle:integer range 0 to 180:=0;
 signal drawer_opened: std_logic:='0';
 signal clkcount:integer range 0 to 1000000000:=0;
+signal finish:std_logic:='0';
 
 begin
 led<=ledval;
 process(clk) begin
 
 if clk'event and clk='1' then
-if open_drawer='1' then 
+if finish='1' then
+clkcount<=clkcount+1;
+if clkcount=10000000 then
+finish<='0';
+clkcount<=0;
+end if;
+elsif drawer_opened='1' then
+if ir='1' then 
+ir_prev<='1';
+drawer_opened<='0';
+finish<='1';
+ledval<='0';
+clkcount<=0;
+else
+clkcount<=clkcount+1;
+if clkcount=10000000 then
+stay_time<=stay_time+1;
+end if;
+end if;
+elsif open_drawer='1' then 
 clkcount<=clkcount+1;
 if clkcount=100000000 then
 clkcount<=0;
+stay_time<=10;
 open_drawer<='0';
+drawer_opened<='1';
 angle<=0;
 end if;
 elsif ir='0' and ir_prev='1' then

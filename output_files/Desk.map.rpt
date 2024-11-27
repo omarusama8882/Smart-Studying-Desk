@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Desk
-Wed Nov 27 21:16:22 2024
+Wed Nov 27 21:54:25 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -17,13 +17,14 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   9. Removed Registers Triggering Further Register Optimizations
  10. General Register Statistics
  11. Inverted Register Statistics
- 12. Parameter Settings for User Entity Instance: servo:StageServo
- 13. Parameter Settings for Inferred Entity Instance: servo:StageServo|lpm_mult:Mult0
- 14. lpm_mult Parameter Settings by Entity Instance
- 15. Port Connectivity Checks: "servo:StageServo"
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: servo:StageServo
+ 14. Parameter Settings for Inferred Entity Instance: servo:StageServo|lpm_mult:Mult0
+ 15. lpm_mult Parameter Settings by Entity Instance
+ 16. Port Connectivity Checks: "servo:StageServo"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
 
 
 
@@ -50,15 +51,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 27 21:16:22 2024          ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 27 21:54:25 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; Desk                                           ;
 ; Top-level Entity Name              ; Desk                                           ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 100                                            ;
-;     Total combinational functions  ; 99                                             ;
-;     Dedicated logic registers      ; 60                                             ;
-; Total registers                    ; 60                                             ;
+; Total logic elements               ; 99                                             ;
+;     Total combinational functions  ; 98                                             ;
+;     Dedicated logic registers      ; 62                                             ;
+; Total registers                    ; 62                                             ;
 ; Total pins                         ; 5                                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -204,20 +205,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 100       ;
+; Estimated Total logic elements              ; 99        ;
 ;                                             ;           ;
-; Total combinational functions               ; 99        ;
+; Total combinational functions               ; 98        ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 23        ;
-;     -- 3 input functions                    ; 6         ;
-;     -- <=2 input functions                  ; 70        ;
+;     -- 4 input functions                    ; 32        ;
+;     -- 3 input functions                    ; 9         ;
+;     -- <=2 input functions                  ; 57        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 49        ;
+;     -- normal mode                          ; 48        ;
 ;     -- arithmetic mode                      ; 50        ;
 ;                                             ;           ;
-; Total registers                             ; 60        ;
-;     -- Dedicated logic registers            ; 60        ;
+; Total registers                             ; 62        ;
+;     -- Dedicated logic registers            ; 62        ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 5         ;
@@ -225,9 +226,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 60        ;
-; Total fan-out                               ; 418       ;
-; Average fan-out                             ; 2.47      ;
+; Maximum fan-out                             ; 62        ;
+; Total fan-out                               ; 471       ;
+; Average fan-out                             ; 2.77      ;
 +---------------------------------------------+-----------+
 
 
@@ -236,7 +237,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name    ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------+-------------+--------------+
-; |Desk                      ; 99 (57)             ; 60 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 5    ; 0            ; 0          ; |Desk                  ; Desk        ; work         ;
+; |Desk                      ; 98 (56)             ; 62 (35)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 5    ; 0            ; 0          ; |Desk                  ; Desk        ; work         ;
 ;    |servo:StageServo|      ; 42 (42)             ; 27 (27)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Desk|servo:StageServo ; servo       ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -272,8 +273,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 60    ;
-; Number of registers using Synchronous Clear  ; 18    ;
+; Total registers                              ; 62    ;
+; Number of registers using Synchronous Clear  ; 48    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -287,9 +288,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; ir_prev                                ; 3       ;
+; ir_prev                                ; 2       ;
 ; Total number of inverted registers = 1 ;         ;
 +----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 7:1                ; 30 bits   ; 120 LEs       ; 30 LEs               ; 90 LEs                 ; Yes        ; |Desk|clkcount[28]         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +---------------------------------------------------------------+
@@ -376,22 +386,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 5                           ;
-; cycloneiii_ff         ; 60                          ;
-;     ENA               ; 30                          ;
+; cycloneiii_ff         ; 62                          ;
+;     ENA SCLR          ; 30                          ;
 ;     SCLR              ; 18                          ;
-;     plain             ; 12                          ;
-; cycloneiii_lcell_comb ; 99                          ;
+;     plain             ; 14                          ;
+; cycloneiii_lcell_comb ; 98                          ;
 ;     arith             ; 50                          ;
 ;         2 data inputs ; 50                          ;
-;     normal            ; 49                          ;
+;     normal            ; 48                          ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 15                          ;
-;         3 data inputs ; 6                           ;
-;         4 data inputs ; 23                          ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 32                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.32                        ;
+; Average LUT depth     ; 3.19                        ;
 +-----------------------+-----------------------------+
 
 
@@ -400,7 +410,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -410,7 +420,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Wed Nov 27 21:15:57 2024
+    Info: Processing started: Wed Nov 27 21:54:08 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SmartStudyingDesk -c Desk
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -421,7 +431,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file servo.v
     Info (12022): Found design unit 1: servo-rtl File: C:/Users/HP/Desktop/Smart-Studying-Desk/servo.vhd Line: 22
     Info (12023): Found entity 1: servo File: C:/Users/HP/Desktop/Smart-Studying-Desk/servo.vhd Line: 6
 Info (12127): Elaborating entity "Desk" for the top level hierarchy
-Info (12129): Elaborating entity "servo" using architecture "A:rtl" for hierarchy "servo:StageServo" File: C:/Users/HP/Desktop/Smart-Studying-Desk/Desk.vhd Line: 51
+Info (12129): Elaborating entity "servo" using architecture "A:rtl" for hierarchy "servo:StageServo" File: C:/Users/HP/Desktop/Smart-Studying-Desk/Desk.vhd Line: 73
 Info (278001): Inferred 1 megafunctions from design logic
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "servo:StageServo|Mult0" File: C:/Users/HP/Desktop/Smart-Studying-Desk/servo.vhd Line: 84
 Info (12130): Elaborated megafunction instantiation "servo:StageServo|lpm_mult:Mult0" File: C:/Users/HP/Desktop/Smart-Studying-Desk/servo.vhd Line: 84
@@ -441,14 +451,14 @@ Info (12131): Elaborated megafunction instantiation "servo:StageServo|lpm_mult:M
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 105 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 104 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 2 output pins
-    Info (21061): Implemented 100 logic cells
+    Info (21061): Implemented 99 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4803 megabytes
-    Info: Processing ended: Wed Nov 27 21:16:22 2024
-    Info: Elapsed time: 00:00:25
-    Info: Total CPU time (on all processors): 00:00:55
+    Info: Processing ended: Wed Nov 27 21:54:25 2024
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:41
 
 
