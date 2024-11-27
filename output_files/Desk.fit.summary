@@ -1,14 +1,14 @@
-Fitter Status : Successful - Wed Nov 27 20:49:03 2024
+Fitter Status : Successful - Wed Nov 27 21:16:46 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : Desk
 Top-level Entity Name : Desk
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 98 / 49,760 ( < 1 % )
-    Total combinational functions : 98 / 49,760 ( < 1 % )
-    Dedicated logic registers : 59 / 49,760 ( < 1 % )
-Total registers : 59
+Total logic elements : 101 / 49,760 ( < 1 % )
+    Total combinational functions : 100 / 49,760 ( < 1 % )
+    Dedicated logic registers : 60 / 49,760 ( < 1 % )
+Total registers : 60
 Total pins : 5 / 360 ( 1 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )

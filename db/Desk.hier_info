@@ -1,6 +1,7 @@
 |Desk
 clk => servo:StageServo.clk
 clk => ir_prev.CLK
+clk => ledval.CLK
 clk => angle[0].CLK
 clk => angle[1].CLK
 clk => angle[2].CLK
@@ -36,9 +37,9 @@ clk => clkcount[27].CLK
 clk => clkcount[28].CLK
 clk => clkcount[29].CLK
 ir => process_0.IN1
-ldr => ~NO_FANOUT~
+ldr => ledval.OUTPUTSELECT
 servo <= servo:StageServo.pwm
-led <= comb.DB_MAX_OUTPUT_PORT_TYPE
+led <= ledval.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Desk|servo:StageServo

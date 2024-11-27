@@ -10,7 +10,7 @@ end Desk;
 architecture arch of Desk is
 constant clk_hz : real := 1.0e7;
 constant clk_period : time := 1 sec / clk_hz;
-  
+signal ledval:std_logic:='0';
 constant pulse_hz : real := 50.0;
 constant pulse_period : time := 1 sec / pulse_hz;
 constant min_pulse_us : real := 1000.0;
@@ -27,6 +27,7 @@ signal drawer_opened: std_logic:='0';
 signal clkcount:integer range 0 to 1000000000:=0;
 
 begin
+led<=ledval;
 process(clk) begin
 
 if clk'event and clk='1' then
@@ -38,6 +39,9 @@ open_drawer<='0';
 angle<=0;
 end if;
 elsif ir='0' and ir_prev='1' then
+if ldr='1' then
+ledval<='1';
+end if;
 ir_prev<='0';
 angle<=180;
 open_drawer<='1';
