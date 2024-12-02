@@ -12,6 +12,62 @@
 					"strict" : false
 				},
 				{
+					"name" : "leds1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "leds1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "leds1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "leds1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "leds1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "leds1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "leds1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "leds2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "leds2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "leds2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "leds2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "leds2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "leds2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "leds2[0]",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},
